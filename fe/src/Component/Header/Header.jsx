@@ -15,8 +15,8 @@ const Header = () => {
   };
 
   return (
-    <StyledHeader zzzz={isOpen}>
-      <HeaderLeft ererer={{ handleMouseEvent, checkIsOpen }} />
+    <StyledHeader isOpen={isOpen}>
+      <HeaderLeft state={{ handleMouseEvent, checkIsOpen }} />
       <HeaderRight />
     </StyledHeader>
   );
