@@ -10,15 +10,6 @@ const SubMenu = ({ subMenuDatas }) => {
   return <SubMenuUl>{subMenuList}</SubMenuUl>;
 };
 
-SubMenu.propTypes = {
-  subMenuDatas: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
-
 const Menu = ({ state: { handleMouseEvent, checkIsOpen } }) => {
   const subMenuContents = (subMenu) => {
     return checkIsOpen() ? <SubMenu subMenuDatas={subMenu} /> : null;
@@ -34,6 +25,15 @@ const Menu = ({ state: { handleMouseEvent, checkIsOpen } }) => {
       {subMenuContents(subMenu)}
     </li>
   ));
+};
+
+SubMenu.propTypes = {
+  subMenuDatas: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Menu;
