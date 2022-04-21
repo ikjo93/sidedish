@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import Menu from "./Menu";
 import { StyledNav, StyledUl } from "./Nav.styled";
 
-const Nav = ({ state }) => {
+const Nav = ({ state: { handleMouseEvent, checkIsOpen } }) => {
   return (
     <StyledNav>
       <StyledUl>
-        <Menu state={state} />
+        <Menu state={{ handleMouseEvent, checkIsOpen }} />
       </StyledUl>
     </StyledNav>
   );
