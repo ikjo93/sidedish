@@ -49,6 +49,12 @@ const Reset = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
     }
+    
+    /* reset by JinJeon */
+    button{
+    border: 0;
+    background-color: transparent;
+    }
 `;
 
 export default Reset;
