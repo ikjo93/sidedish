@@ -4,7 +4,8 @@ const SubMenuUl = styled.ul`
   font-family: "Noto Sans KR";
   font-size: 14px;
   line-height: 24px;
-  margin-top: 16px;
+  padding-top: 15px;
+  position: absolute;
 `;
 
 export default SubMenuUl;
