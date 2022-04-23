@@ -11,18 +11,14 @@ const SubMenu = ({ subMenuDatas }) => {
 };
 
 const Menu = ({ isOpen }) => {
-  const subMenuContents = (subMenu) => {
-    return isOpen() ? <SubMenu subMenuDatas={subMenu} /> : null;
-  };
-
-  const MainMenu = MenuDatas.map(({ id, name, subMenu }) => (
+  const MainMenuList = MenuDatas.map(({ id, name, subMenu }) => (
     <li key={id}>
       {name}
-      {subMenuContents(subMenu)}
+      {isOpen && <SubMenu subMenuDatas={subMenu} />}
     </li>
   ));
 
-  return <MainMenuUl>{MainMenu}</MainMenuUl>;
+  return <MainMenuUl>{MainMenuList}</MainMenuUl>;
 };
 
 Menu.propTypes = {
