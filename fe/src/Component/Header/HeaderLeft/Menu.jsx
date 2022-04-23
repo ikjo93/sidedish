@@ -10,9 +10,9 @@ const SubMenu = ({ subMenuDatas }) => {
   return <SubMenuUl>{subMenuList}</SubMenuUl>;
 };
 
-const Menu = ({ state: { handleMouseEvent, checkIsOpen } }) => {
+const Menu = ({ isOpen }) => {
   const subMenuContents = (subMenu) => {
-    return checkIsOpen() ? <SubMenu subMenuDatas={subMenu} /> : null;
+    return isOpen() ? <SubMenu subMenuDatas={subMenu} /> : null;
   };
 
   const MainMenu = MenuDatas.map(({ id, name, subMenu }) => (
@@ -22,15 +22,11 @@ const Menu = ({ state: { handleMouseEvent, checkIsOpen } }) => {
     </li>
   ));
 
-  return (
-    <MainMenuUl onMouseEnter={handleMouseEvent} onMouseLeave={handleMouseEvent}>
-      {MainMenu}
-    </MainMenuUl>
-  );
+  return <MainMenuUl>{MainMenu}</MainMenuUl>;
 };
 
 Menu.propTypes = {
-  state: PropTypes.objectOf(PropTypes.func).isRequired,
+  isOpen: PropTypes.func.isRequired,
 };
 
 SubMenu.propTypes = {
