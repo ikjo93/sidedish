@@ -1,12 +1,31 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import StyledEventTab from "./EventTab.styled";
 
-const EventTab = ({ categories }) => {
-  const eventList = categories
-    ? categories.map((category) => <li key={category.id}>{category.name}</li>)
-    : null;
+const tabClickHandler = ({ target: { id } }, selectedId, setSelectedId) => {
+  const targetId = Number(id);
+  if (targetId !== selectedId) setSelectedId(targetId);
+};
 
-  return <StyledEventTab>{eventList}</StyledEventTab>;
+const EventTab = ({ categories }) => {
+  const [selectedId, setSelectedId] = useState(1);
+
+  if (!categories) return null;
+
+  const eventList = categories.map((category) => (
+    <li key={category.id} id={category.id}>
+      {category.name}
+    </li>
+  ));
+
+  return (
+    <StyledEventTab
+      id={selectedId}
+      onClick={(event) => tabClickHandler(event, selectedId, setSelectedId)}
+    >
+      {eventList}
+    </StyledEventTab>
+  );
 };
 
 EventTab.defaultProps = {

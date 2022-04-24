@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledEventTab = styled.ul`
   font-family: "Noto Sans KR";
@@ -7,10 +7,22 @@ const StyledEventTab = styled.ul`
   line-height: 30px;
   display: flex;
   margin-top: 24px;
-  margin-bottom: 16px;
-  li:not(:last-child) {
-    margin-right: 32px;
+  > li {
+    padding-bottom: 16px;
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+    :hover {
+      border-bottom: 2px solid #1b1b1b;
+    }
   }
+  ${({ id }) =>
+    id &&
+    css`
+      > :nth-child(${id}) {
+        border-bottom: 2px solid #1b1b1b;
+      }
+    `}
 `;
 
 export default StyledEventTab;
