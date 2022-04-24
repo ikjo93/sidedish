@@ -5,6 +5,7 @@ import {
   StyledEventLogo,
   StyledEventTitle,
 } from "./EventPart.styled";
+import EventTab from "./EventTab/EventTab";
 
 const EventPart = () => {
   const [name, setName] = useState(null);

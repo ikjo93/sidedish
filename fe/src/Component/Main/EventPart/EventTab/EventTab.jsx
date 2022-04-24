@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { StyledEventTab } from "./EventTab.styled";
+import StyledEventTab from "./EventTab.styled";
 
 const EventTab = ({ categories }) => {
   const eventList = categories

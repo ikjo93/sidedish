@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledEventTab = styled.ul`
+const StyledEventTab = styled.ul`
   font-family: "Noto Sans KR";
   font-size: 20px;
   font-weight: 500;
@@ -11,3 +11,5 @@ export const StyledEventTab = styled.ul`
     margin-right: 32px;
   }
 `;
+
+export default StyledEventTab;
