@@ -7,6 +7,7 @@ const StyledEventTab = styled.ul`
   line-height: 30px;
   display: flex;
   margin-top: 24px;
+  margin-bottom: 16px;
   li:not(:last-child) {
     margin-right: 32px;
   }

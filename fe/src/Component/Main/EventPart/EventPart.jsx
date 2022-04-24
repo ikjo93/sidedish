@@ -4,8 +4,10 @@ import {
   StyledEventDesc,
   StyledEventLogo,
   StyledEventTitle,
+  StyledEventPart,
 } from "./EventPart.styled";
 import EventTab from "./EventTab/EventTab";
+import EventCards from "./EventCards/EventCards";
 
 const EventPart = () => {
   const [name, setName] = useState(null);
@@ -25,13 +27,14 @@ const EventPart = () => {
   }, []);
 
   return (
-    <>
+    <StyledEventPart>
       <StyledEventTitle>
         <StyledEventLogo>기획전</StyledEventLogo>
         <StyledEventDesc>{name}</StyledEventDesc>
       </StyledEventTitle>
       <EventTab categories={categories} />
-    </>
+      <EventCards />
+    </StyledEventPart>
   );
 };
 

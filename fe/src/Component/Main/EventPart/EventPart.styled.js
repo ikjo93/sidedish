@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const StyledEventPart = styled.div`
+  > * {
+    padding: 0 80px;
+  }
+  padding-top: 56px;
+`;
+
 export const StyledEventTitle = styled.div`
   font-family: "Noto Sans KR";
   display: flex;
