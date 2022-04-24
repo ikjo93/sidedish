@@ -1,5 +1,12 @@
+import EventPart from "./EventPart/EventPart";
+import StyledMain from "./Main.styled";
+
 const Main = () => {
-  return <main>{}</main>;
+  return (
+    <StyledMain>
+      <EventPart />
+    </StyledMain>
+  );
 };
 
 export default Main;
