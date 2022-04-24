@@ -73,4 +73,26 @@ const icons = [
   },
 ];
 
-export { MenuDatas, icons };
+const event = {
+  eventName: "한 번 주문하면 두 번 반하는 반찬",
+  eventCategories: [
+    {
+      id: 1,
+      name: "풍성한 고기 반찬",
+    },
+    {
+      id: 2,
+      name: "편리한 반찬 세트",
+    },
+    {
+      id: 3,
+      name: "맛있는 제철 요리",
+    },
+    {
+      id: 4,
+      name: "우리 아이 영양 반찬",
+    },
+  ],
+};
+
+export { MenuDatas, icons, event };
