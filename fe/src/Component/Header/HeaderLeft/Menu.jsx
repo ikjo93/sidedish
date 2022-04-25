@@ -3,8 +3,8 @@ import { MenuDatas } from "MockData/MockData";
 import { MainMenuUl, SubMenuUl } from "Component/Header/HeaderLeft/Menu.Styled";
 
 const SubMenu = ({ subMenuDatas }) => {
-  const subMenuList = subMenuDatas.map((subMenuData) => (
-    <li key={subMenuData.id}>{subMenuData.name}</li>
+  const subMenuList = subMenuDatas.map(({ id, name }) => (
+    <li key={id}>{name}</li>
   ));
 
   return <SubMenuUl>{subMenuList}</SubMenuUl>;
