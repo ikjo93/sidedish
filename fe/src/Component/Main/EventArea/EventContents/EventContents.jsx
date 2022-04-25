@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import EventCardPrice from "Component/Main/EventPart/EventContents/EventCardPrice";
+import EventCardPrice from "Component/Main/EventArea/EventContents/EventCardPrice";
 import eventCategoriesApi from "Service/eventCategoriesApi";
 
 const StyledEventCards = styled.ul`
