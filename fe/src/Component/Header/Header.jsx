@@ -12,14 +12,13 @@ const maxSubMenuDataSize = MenuDatas.reduce((maxLength, curMenuData) => {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isSubMenuOpen = isOpen;
   const handleMouseEvent = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <StyledHeader isOpen={isOpen} maxSubMenuDataSize={maxSubMenuDataSize}>
-      <HeaderLeft state={{ handleMouseEvent, isSubMenuOpen }} />
+      <HeaderLeft state={{ handleMouseEvent, isOpen }} />
       <HeaderRight />
     </StyledHeader>
   );
