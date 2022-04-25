@@ -56,7 +56,7 @@ const StyledEventCards = styled.ul`
 `;
 
 const EventContents = ({ selectedId }) => {
-  const [sideDishes, setSideDishes] = useState(null);
+  const [sideDishes, setSideDishes] = useState([]);
 
   const fetchCurCategorySideDishes = async (eventCategoryId) => {
     const responseData = await eventCategoriesApi.getSideDishes(
@@ -69,7 +69,7 @@ const EventContents = ({ selectedId }) => {
     fetchCurCategorySideDishes(selectedId);
   }, [selectedId]);
 
-  if (!sideDishes) return null;
+  // if (!sideDishes.length) return null;
 
   const eventCards = sideDishes.map((sideDish) => {
     const {
