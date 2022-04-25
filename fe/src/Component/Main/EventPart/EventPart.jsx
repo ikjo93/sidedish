@@ -7,11 +7,12 @@ import {
   StyledEventPart,
 } from "./EventPart.styled";
 import EventTab from "./EventTab/EventTab";
-import EventCards from "./EventCards/EventCards";
+import EventContents from "./EventContents/EventContents";
 
 const EventPart = () => {
   const [name, setName] = useState(null);
   const [categories, setCategories] = useState(null);
+  const [selectedId, setSelectedId] = useState(1);
 
   async function getData() {
     await axios("/api/event-categories")
@@ -32,8 +33,8 @@ const EventPart = () => {
         <StyledEventLogo>기획전</StyledEventLogo>
         <StyledEventDesc>{name}</StyledEventDesc>
       </StyledEventTitle>
-      <EventTab categories={categories} />
-      <EventCards />
+      <EventTab state={{ categories, selectedId, setSelectedId }} />
+      <EventContents selectedId={selectedId} />
     </StyledEventPart>
   );
 };

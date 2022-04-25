@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import StyledEventTab from "./EventTab.styled";
 
 const tabClickHandler = ({ target: { id } }, selectedId, setSelectedId) => {
@@ -7,9 +6,7 @@ const tabClickHandler = ({ target: { id } }, selectedId, setSelectedId) => {
   if (targetId !== selectedId) setSelectedId(targetId);
 };
 
-const EventTab = ({ categories }) => {
-  const [selectedId, setSelectedId] = useState(1);
-
+const EventTab = ({ state: { categories, selectedId, setSelectedId } }) => {
   if (!categories) return null;
 
   const eventList = categories.map((category) => (
@@ -28,17 +25,19 @@ const EventTab = ({ categories }) => {
   );
 };
 
-EventTab.defaultProps = {
-  categories: null,
-};
-
 EventTab.propTypes = {
-  categories: PropTypes.arrayOf(
+  state: PropTypes.objectOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
+      categories: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ),
+      selectedId: PropTypes.number.isRequired,
+      setSelectedId: PropTypes.func.isRequired,
     })
   ),
-};
+}.isRequired;
 
 export default EventTab;
