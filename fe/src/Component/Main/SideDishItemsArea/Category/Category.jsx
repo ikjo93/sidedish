@@ -23,7 +23,7 @@ Category.propTypes = {
   name: PropTypes.string.isRequired,
   sideDishes: PropTypes.arrayOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool])
     )
   ).isRequired,
 };

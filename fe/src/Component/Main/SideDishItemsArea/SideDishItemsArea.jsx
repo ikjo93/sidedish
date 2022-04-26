@@ -29,11 +29,11 @@ const SideDishItemsArea = () => {
   }, []);
 
   return sideDishItemsData.map(({ category: { name, id }, sideDishes }) => (
-    <Wrapper>
+    <Wrapper key={id}>
       <SliderButton type="button" className="left">
         {ImgSliderButtons.left}
       </SliderButton>
-      <Category key={id} name={name} sideDishes={sideDishes} />
+      <Category name={name} sideDishes={sideDishes} />
       <SliderButton type="button" className="right">
         {ImgSliderButtons.right}
       </SliderButton>

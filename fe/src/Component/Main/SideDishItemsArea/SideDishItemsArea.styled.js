@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const SliderButton = () => styled.button`
+const SliderButton = styled.button`
   position: absolute;
 
   &.left {

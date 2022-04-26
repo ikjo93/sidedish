@@ -6,7 +6,7 @@ const ImgSlider = ({ sideDishes }) => {
     <ImgSliderWrapper>
       <ul>
         {sideDishes.map((sideDish) => (
-          <li>{sideDish.name}</li>
+          <li key={sideDish.id}>{sideDish.name}</li>
         ))}
       </ul>
     </ImgSliderWrapper>
@@ -16,7 +16,7 @@ const ImgSlider = ({ sideDishes }) => {
 ImgSlider.propTypes = {
   sideDishes: PropTypes.arrayOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool])
     )
   ).isRequired,
 };
