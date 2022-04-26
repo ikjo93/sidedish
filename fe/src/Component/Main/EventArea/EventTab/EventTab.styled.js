@@ -26,7 +26,7 @@ const EventTabUl = styled.ul`
     }
 
     :hover {
-      border-bottom: 2px solid #1b1b1b;
+      border-bottom: 2px solid #bcbcbc;
     }
   }
 `;

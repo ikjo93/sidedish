@@ -70,7 +70,7 @@ const CardFlag = styled.div`
           visibility: hidden;
         `};
         line-height: 100px;
-        border-bottom: solid 0.5px black;
+        border-bottom: solid 0.5px ${colors.black};
       }
 
       > :nth-child(2) {
@@ -79,7 +79,7 @@ const CardFlag = styled.div`
           visibility: hidden;
         `};
         line-height: 40px;
-        border-top: solid 0.5px black;
+        border-top: solid 0.5px ${colors.black};
       }
     `;
   }}
