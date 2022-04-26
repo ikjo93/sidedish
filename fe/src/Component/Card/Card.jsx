@@ -14,11 +14,20 @@ const Card = ({
     discountType,
     discountRate,
     saveFileName,
+    dawnDeliveryFlag,
+    wholeNationDeliveryFlag,
   },
 }) => {
   return (
     <CardLi key={id} type={type}>
-      <CardImageAndFlag props={{ saveFileName, name }} />
+      <CardImageAndFlag
+        props={{
+          saveFileName,
+          name,
+          dawnDeliveryFlag,
+          wholeNationDeliveryFlag,
+        }}
+      />
       <div className="name">{name}</div>
       <div className="desc">{description}</div>
       <CardPrice price={price} discountRate={discountRate} />

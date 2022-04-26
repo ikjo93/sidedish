@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import eventCategoriesApi from "Service/eventCategoriesApi";
-import Card from "../../../Card/Card";
+import Card from "Component/Card/Card";
 
 const EventCardsWrapper = styled.div`
   ${({ theme: { colors } }) =>

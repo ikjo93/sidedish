@@ -37,7 +37,11 @@ const CardImage = styled.img`
 `;
 
 const CardFlag = styled.div`
-  ${({ theme: { colors }, isHover }) => {
+  ${({
+    theme: { colors },
+    flag: { dawnDeliveryFlag, wholeNationDeliveryFlag },
+    isHover,
+  }) => {
     return css`
       background: rgba(248, 247, 247, 0.8);
       display: flex;
@@ -61,20 +65,29 @@ const CardFlag = styled.div`
       }
 
       > :nth-child(1) {
+        ${!dawnDeliveryFlag &&
+        css`
+          visibility: hidden;
+        `};
         line-height: 100px;
-        border-bottom: solid 1px black;
+        border-bottom: solid 0.5px black;
       }
 
       > :nth-child(2) {
+        ${!wholeNationDeliveryFlag &&
+        css`
+          visibility: hidden;
+        `};
         line-height: 40px;
+        border-top: solid 0.5px black;
       }
     `;
   }}
 `;
 
 const CardPriceDiv = styled.div`
-  margin-top: 8px;
   ${({ theme: { colors, regularFonts, boldFonts } }) => css`
+    margin-top: 8px;
     > :nth-child(1) {
       ${boldFonts.medium};
       color: ${colors.black};
