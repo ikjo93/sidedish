@@ -39,7 +39,7 @@ const Card = ({
 Card.propTypes = {
   type: PropTypes.string.isRequired,
   props: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   ).isRequired,
 };
 

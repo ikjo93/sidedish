@@ -26,7 +26,7 @@ const CardImageAndFlag = ({
 
 CardImageAndFlag.propTypes = {
   props: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+    PropTypes.oneOfType([PropTypes.func, PropTypes.string, PropTypes.bool])
   ).isRequired,
 };
 
