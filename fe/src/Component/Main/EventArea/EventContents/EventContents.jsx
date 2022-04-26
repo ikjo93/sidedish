@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import eventCategoriesApi from "Service/eventCategoriesApi";
 import Card from "../../../Card/Card";
 
-const StyledEventCards = styled.ul`
+const EventCardsWrapper = styled.div`
+  ${({ theme: { colors } }) =>
+    css`
+      border-top: solid 1px ${colors.grey4};
+      border-bottom: solid 1px ${colors.grey4};
+    `}
+`;
+
+const EventCardsUl = styled.ul`
+  ${({ theme: { center } }) => center}
+
   font-family: "Noto Sans KR";
   padding-top: 34px;
   padding-bottom: 56px;
   display: flex;
-  > li {
+
+  > li:not(:last-child) {
     margin-right: 24px;
   }
 `;
@@ -32,7 +43,11 @@ const EventContents = ({ selectedId }) => {
     fetchCurCategorySideDishes(selectedId);
   }, [selectedId]);
 
-  return <StyledEventCards>{eventCards}</StyledEventCards>;
+  return (
+    <EventCardsWrapper>
+      <EventCardsUl>{eventCards}</EventCardsUl>
+    </EventCardsWrapper>
+  );
 };
 
 EventContents.propTypes = {
