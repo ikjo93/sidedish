@@ -133,7 +133,7 @@ const categoryMenus = {
   ],
 };
 
-const menuData = {
+const categoryFirstData = {
   menuCategories: [
     {
       menuCategoryName: "식탁을 풍성하게 하는 정갈한 밑반찬",
@@ -154,4 +154,103 @@ const menuData = {
   ],
 };
 
-export { MenuDatas, icons, event, categoryMenus, menuData };
+const categoryRestData = {
+  menuCategories: [
+    {
+      menuCategoryName: "정성이 담긴 뜨끈뜨근 국물 요리",
+      sideDishes: [
+        {
+          id: 9,
+          name: "냉면",
+          description: "맛있어요!!",
+          dawnDeliveryFlag: true,
+          wholeNationDeliveryFlag: true,
+          price: 8000,
+          discountType: "이벤트 특가",
+          discountRate: 20,
+          saveFileName: "img/9_ma_1.png",
+        },
+      ],
+    },
+    {
+      menuCategoryName: "모두가 좋아하는 든든한 메인 요리",
+      sideDishes: [
+        {
+          id: 1,
+          name: "오리 주물럭_반조리",
+          description: "감칠맛 나는 매콤한 양념",
+          dawnDeliveryFlag: true,
+          wholeNationDeliveryFlag: true,
+          price: 15800,
+          discountType: "이벤트 특가",
+          discountRate: 20,
+          saveFileName: "img/1_ma_1.png",
+        },
+        {
+          id: 2,
+          name: "소갈비찜",
+          description: "촉촉하게 벤 양념이 일품",
+          dawnDeliveryFlag: false,
+          wholeNationDeliveryFlag: false,
+          price: 28900,
+          discountType: "런칭 특가",
+          discountRate: 10,
+          saveFileName: "img/2_ma_1.png",
+        },
+        {
+          id: 3,
+          name: "쭈꾸미 한돈 제육볶음_반조리",
+          description: "쫄깃한 쭈구미와 고소한 돼지고기가 일품",
+          dawnDeliveryFlag: false,
+          wholeNationDeliveryFlag: false,
+          price: 16900,
+          discountType: null,
+          discountRate: 0,
+          saveFileName: "img/3_ma_1.png",
+        },
+        {
+          id: 4,
+          name: "돼지불갈비",
+          description: "맛있어요!!",
+          dawnDeliveryFlag: false,
+          wholeNationDeliveryFlag: false,
+          price: 10000,
+          discountType: null,
+          discountRate: 0,
+          saveFileName: "img/4_ma_1.png",
+        },
+        {
+          id: 11,
+          name: "연어구이",
+          description: "맛있어요!!",
+          dawnDeliveryFlag: false,
+          wholeNationDeliveryFlag: false,
+          price: 10000,
+          discountType: null,
+          discountRate: 0,
+          saveFileName: "img/11_ma_1.png",
+        },
+        {
+          id: 12,
+          name: "광어구이",
+          description: "맛있어요!!",
+          dawnDeliveryFlag: false,
+          wholeNationDeliveryFlag: false,
+          price: 11000,
+          discountType: null,
+          discountRate: 0,
+          saveFileName: "img/12_ma_1.png",
+        },
+      ],
+    },
+  ],
+};
+
+export {
+  MenuDatas,
+  icons,
+  event,
+  categoryMenus,
+  categoryFirstData,
+  categoryRestData,
+};
