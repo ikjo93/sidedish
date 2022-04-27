@@ -73,7 +73,6 @@ const Category = ({ name, sideDishes }) => {
     setIsLeftButtonClickable(true);
 
     checkCurPosition[direction]();
-    moveSlider();
   };
 
   const movePosition = {
@@ -93,12 +92,14 @@ const Category = ({ name, sideDishes }) => {
         return;
       }
       movePosition.left();
+      moveSlider();
     },
     right: () => {
       if (curPosition.current + MAX_CARDS_COUNT_PER_SLIDE >= TOTAL_DATA_COUNT) {
         return;
       }
       movePosition.right();
+      moveSlider();
     },
   };
 
