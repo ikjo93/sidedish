@@ -15,11 +15,13 @@ const ResultPriceDiv = styled.div`
 
 const CounterButtonDiv = styled.div`
   display: flex;
+
   div {
     width: 40px;
     height: 26px;
     text-align: center;
   }
+
   button {
     width: 32px;
     height: 32px;

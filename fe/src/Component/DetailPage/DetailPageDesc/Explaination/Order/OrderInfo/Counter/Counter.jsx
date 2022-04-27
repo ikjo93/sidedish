@@ -15,7 +15,7 @@ const Counter = ({ state: { count, setCount } }) => {
       minus: () => (count > 1 ? count - 1 : count),
     };
     const nextCount = calculating[direction];
-    console.log(nextCount);
+
     if (count !== nextCount) setCount(calculating[direction]);
   };
 

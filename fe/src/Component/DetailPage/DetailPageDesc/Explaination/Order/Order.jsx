@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import DetailInfoContext from "Component/DetailPage/DetailInfoContext";
 import OrderPrice from "./OrderPrice/OrderPrice";
 import OrderInfo from "./OrderInfo/OrderInfo";
+import OrderBtn from "./OrderBtn/OrderBtn";
 
 const OrderDiv = styled.div`
   width: 440px;
@@ -22,6 +23,7 @@ const Order = () => {
       <div className="name">{name}</div>
       <OrderPrice />
       <OrderInfo />
+      <OrderBtn />
     </OrderDiv>
   );
 };
