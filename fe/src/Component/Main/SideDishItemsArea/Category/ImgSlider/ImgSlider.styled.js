@@ -17,18 +17,17 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-const ImgSliderUl = styled.div`
+const ImgSliderUl = styled.ul`
   display: flex;
   margin-top: 40px;
 
-  .temp {
+  li {
     width: ${CARD_SIZE.width};
     height: ${CARD_SIZE.height};
     flex-shrink: 0;
-    background-color: beige;
   }
 
-  .temp:not(:last-child) {
+  li:not(:last-child) {
     margin-right: ${CARD_SIZE.margin};
   }
 `;

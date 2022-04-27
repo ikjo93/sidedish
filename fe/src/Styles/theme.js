@@ -83,6 +83,11 @@ const regularFonts = {
 };
 
 const cardSize = {
+  large: {
+    width: "411px",
+    height: "565px",
+  },
+
   small: {
     width: "302px",
     height: "456px",

@@ -23,7 +23,7 @@ const SideDishItemsArea = () => {
   };
 
   useEffect(() => {
-    fetchCategorySideDishData("rest");
+    fetchCategorySideDishData("first");
   }, []);
 
   return sideDishItemsData.map(({ category: { name, id }, sideDishes }) => (
