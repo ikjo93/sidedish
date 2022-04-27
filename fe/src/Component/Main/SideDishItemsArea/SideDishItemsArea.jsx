@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { ImgSliderButtons } from "MockData/MockData";
 import menuCategoriesApi from "Service/menuCategoriesApi";
 import Category from "./Category/Category";
-import { Wrapper, SliderButton } from "./SideDishItemsArea.styled";
+import Wrapper from "./SideDishItemsArea.styled";
 
 const SideDishItemsArea = () => {
   const [sideDishItemsData, setSideDishItemsData] = useState([]);
@@ -25,18 +24,12 @@ const SideDishItemsArea = () => {
   };
 
   useEffect(() => {
-    fetchCategorySideDishData("first");
+    fetchCategorySideDishData("rest");
   }, []);
 
   return sideDishItemsData.map(({ category: { name, id }, sideDishes }) => (
     <Wrapper key={id}>
-      <SliderButton type="button" className="left">
-        {ImgSliderButtons.left}
-      </SliderButton>
       <Category name={name} sideDishes={sideDishes} />
-      <SliderButton type="button" className="right">
-        {ImgSliderButtons.right}
-      </SliderButton>
     </Wrapper>
   ));
 };

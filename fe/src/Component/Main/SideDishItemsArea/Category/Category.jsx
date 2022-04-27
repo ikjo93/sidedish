@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { CategoryWrapper, Title } from "./Category.styled";
+import { ImgSliderButtons } from "MockData/MockData";
+import { CategoryWrapper, Title, SliderButton } from "./Category.styled";
 import ImgSlider from "./ImgSlider/ImgSlider";
 
 const CategoryTitle = ({ name }) => {
@@ -7,11 +8,21 @@ const CategoryTitle = ({ name }) => {
 };
 
 const Category = ({ name, sideDishes }) => {
+  // const [curFirstIndex, setCurFirstIndex] = setState(0);
+
   return (
-    <CategoryWrapper>
-      <CategoryTitle name={name} />
-      <ImgSlider sideDishes={sideDishes} />
-    </CategoryWrapper>
+    <>
+      <SliderButton type="button" className="left" isClickable={false}>
+        {ImgSliderButtons.left}
+      </SliderButton>
+      <CategoryWrapper>
+        <CategoryTitle name={name} />
+        <ImgSlider sideDishes={sideDishes} />
+      </CategoryWrapper>
+      <SliderButton type="button" className="right" isClickable={true}>
+        {ImgSliderButtons.right}
+      </SliderButton>
+    </>
   );
 };
 

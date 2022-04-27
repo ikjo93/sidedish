@@ -1,15 +1,19 @@
 import PropTypes from "prop-types";
-import ImgSliderWrapper from "./ImgSlider.styled";
+import ImgSliderUl from "./ImgSlider.styled";
+
+const Items = ({ datas }) => {
+  return datas.map((item) => (
+    <div key={item.id} className="temp">
+      {item.name}
+    </div>
+  ));
+};
 
 const ImgSlider = ({ sideDishes }) => {
   return (
-    <ImgSliderWrapper>
-      <ul>
-        {sideDishes.map((sideDish) => (
-          <li key={sideDish.id}>{sideDish.name}</li>
-        ))}
-      </ul>
-    </ImgSliderWrapper>
+    <ImgSliderUl>
+      <Items datas={sideDishes} />
+    </ImgSliderUl>
   );
 };
 

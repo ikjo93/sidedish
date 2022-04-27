@@ -257,7 +257,6 @@ const ImgSliderButtons = {
     >
       <path
         d="M9 18L1 10L9 2"
-        stroke="#1B1B1B"
         strokeWidth="2"
         strokeLinecap="square"
         strokeLinejoin="round"
@@ -274,7 +273,6 @@ const ImgSliderButtons = {
     >
       <path
         d="M2 18L10 10L2 2"
-        stroke="#1B1B1B"
         strokeWidth="2"
         strokeLinecap="square"
         strokeLinejoin="round"
