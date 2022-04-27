@@ -3,12 +3,12 @@ import BtnShowAndHideArea from "./BtnShowAndHideArea";
 import RestCategories from "./RestCategories/RestCategories";
 
 const RestCategoriesArea = () => {
-  const [showing, setShowing] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   return (
     <>
-      <RestCategories />
-      <BtnShowAndHideArea state={{ showing, setShowing }} />
+      {isShow && <RestCategories />}
+      <BtnShowAndHideArea state={{ isShow, setIsShow }} />
     </>
   );
 };
