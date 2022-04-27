@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const CloseBtnDiv = styled.div`
-  height: 40px;
+  height: 76px;
   display: flex;
   justify-content: flex-end;
 `;
