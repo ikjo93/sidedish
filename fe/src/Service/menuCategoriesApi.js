@@ -1,11 +1,15 @@
 import axios from "axios";
 
-const baseURL = `/api/menu-categories/`;
+const baseURL = `http://3.36.89.161/api/`;
 const client = axios.create({ baseURL });
 
 const menuCategoriesApi = {
-  getDataByMenuCategory: async (range) => {
-    const response = await client.get(`${range}/sidedishes`);
+  getFirstMenuCategory: async () => {
+    const response = await client.get(`/first-menu-category`);
+    return response.data;
+  },
+  getRestMenuCategories: async () => {
+    const response = await client.get(`/rest-menu-categories`);
     return response.data;
   },
 };

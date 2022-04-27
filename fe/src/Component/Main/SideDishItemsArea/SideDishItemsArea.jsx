@@ -5,10 +5,8 @@ import Category from "./Category/Category";
 const SideDishItemsArea = () => {
   const [sideDishItemsData, setSideDishItemsData] = useState([]);
 
-  const fetchCategorySideDishData = async (range) => {
-    const { menuCategories } = await menuCategoriesApi.getDataByMenuCategory(
-      range
-    );
+  const fetchFirstMenuCategory = async () => {
+    const { menuCategories } = await menuCategoriesApi.getFirstMenuCategory();
 
     const menuCategoryDatas = menuCategories.map(
       ({ menuCategoryName, sideDishes }, idx) => {
@@ -23,7 +21,7 @@ const SideDishItemsArea = () => {
   };
 
   useEffect(() => {
-    fetchCategorySideDishData("first");
+    fetchFirstMenuCategory();
   }, []);
 
   return sideDishItemsData.map(({ category: { name, id }, sideDishes }) => (

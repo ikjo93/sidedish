@@ -8,10 +8,10 @@ const Cards = ({ datas }) => {
   ));
 };
 
-const ImgSlider = ({ sideDishes, sliderRef, onTransitionEnd }) => {
+const ImgSlider = ({ sideDishes, sliderRef }) => {
   return (
     <Wrapper>
-      <ImgSliderUl ref={sliderRef} onTransitionEnd={onTransitionEnd}>
+      <ImgSliderUl ref={sliderRef}>
         <Cards datas={sideDishes} />
       </ImgSliderUl>
     </Wrapper>
@@ -27,7 +27,6 @@ ImgSlider.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
-  onTransitionEnd: PropTypes.func.isRequired,
 };
 
 export default ImgSlider;
