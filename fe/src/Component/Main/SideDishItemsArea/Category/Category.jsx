@@ -7,6 +7,7 @@ import ImgSlider from "./ImgSlider/ImgSlider";
 
 const TRANSITION_DURATION = "500ms";
 const MAX_CARDS_COUNT_PER_SLIDE = 4;
+
 const CARD_SIZE = {
   width: 302,
   margin: 24,
@@ -45,7 +46,7 @@ const Category = ({ name, sideDishes }) => {
     }px)`;
   };
 
-  const checkCurIndex = {
+  const checkCurPosition = {
     left: () => {
       if (curPosition.current <= 0) {
         curPosition.current = 0;
@@ -67,17 +68,17 @@ const Category = ({ name, sideDishes }) => {
     setIsRightButtonClickable(true);
     setIsLeftButtonClickable(true);
 
-    checkCurIndex[direction]();
+    checkCurPosition[direction]();
     moveSlider();
   };
 
   const movePosition = {
     left: () => {
-      curPosition.current -= 4;
+      curPosition.current -= MAX_CARDS_COUNT_PER_SLIDE;
       computePosition("left");
     },
     right: () => {
-      curPosition.current += 4;
+      curPosition.current += MAX_CARDS_COUNT_PER_SLIDE;
       computePosition("right");
     },
   };
