@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { ImgSliderButtons } from "MockData/MockData";
-// import { useState } from "react";
+import { useState } from "react";
 import { Wrapper, CategoryWrapper, Title } from "./Category.styled";
 import SliderButton from "./ImgSlider/SliderButton";
 import ImgSlider from "./ImgSlider/ImgSlider";
@@ -22,18 +22,29 @@ const CategoryTitle = ({ name }) => {
 
 const Category = ({ name, sideDishes }) => {
   // 초기에는 false, 페이지가 넘어가면 true로 변경
-  // const [isLeftButtonClickable, setIsLeftButtonClickable] = useState(false);
-  // // 4개가 초과하면 true로 변경
-  // const [isRightButtonClickable, setIsRightButtonClickable] = useState(false);
+  const [isLeftButtonClickable, setIsLeftButtonClickable] = useState(false);
+  // 4개가 초과하면 true로 변경
+  const [isRightButtonClickable, setIsRightButtonClickable] = useState(false);
+
+  const buttonHandlers = {
+    left: setIsLeftButtonClickable,
+    right: setIsRightButtonClickable,
+  };
 
   return (
     <Wrapper>
-      <SliderButton info={sliderButtonInfo.left} isClickable={false} />
+      <SliderButton
+        info={sliderButtonInfo.left}
+        isClickable={isLeftButtonClickable}
+      />
       <CategoryWrapper>
         <CategoryTitle name={name} />
-        <ImgSlider sideDishes={sideDishes} />
+        <ImgSlider sideDishes={sideDishes} handlers={buttonHandlers} />
       </CategoryWrapper>
-      <SliderButton info={sliderButtonInfo.right} isClickable={true} />
+      <SliderButton
+        info={sliderButtonInfo.right}
+        isClickable={isRightButtonClickable}
+      />
     </Wrapper>
   );
 };
