@@ -1,17 +1,19 @@
 import styled, { css } from "styled-components";
 
-const CARD_WIDTH = css`
-  ${({ theme: { cardSize } }) => cardSize.small.width}
-`;
-const CARD_HEIGHT = css`
-  ${({ theme: { cardSize } }) => cardSize.small.height}
-`;
-const CARD_MARGIN = css`
-  ${({ theme: { cardSize } }) => cardSize.small.margin}
-`;
+const CARD_SIZE = {
+  width: css`
+    ${({ theme: { cardSize } }) => cardSize.small.width}
+  `,
+  height: css`
+    ${({ theme: { cardSize } }) => cardSize.small.height}
+  `,
+  margin: css`
+    ${({ theme: { cardSize } }) => cardSize.small.margin}
+  `,
+};
 
 const Wrapper = styled.div`
-  max-width: calc((${CARD_WIDTH} * 4) + (${CARD_MARGIN} * 3));
+  max-width: calc((${CARD_SIZE.width} * 4) + (${CARD_SIZE.margin} * 3));
 `;
 
 const ImgSliderUl = styled.div`
@@ -20,14 +22,14 @@ const ImgSliderUl = styled.div`
   margin-top: 40px;
 
   .temp {
-    width: ${CARD_WIDTH};
-    height: ${CARD_HEIGHT};
+    width: ${CARD_SIZE.width};
+    height: ${CARD_SIZE.height};
     flex-shrink: 0;
     background-color: beige;
   }
 
   .temp:not(:last-child) {
-    margin-right: ${CARD_MARGIN};
+    margin-right: ${CARD_SIZE.margin};
   }
 `;
 

@@ -4,20 +4,22 @@ const BUTTON_POSITION = css`
   ${({ theme: { padding } }) => `${parseInt(padding.large, 10) / 2}`}
 `;
 
-const CARD_WIDTH = css`
-  ${({ theme: { cardSize } }) => cardSize.small.width}
-`;
-
-const CARD_MARGIN = css`
-  ${({ theme: { cardSize } }) => cardSize.small.margin}
-`;
+const CARD_SIZE = {
+  width: css`
+    ${({ theme: { cardSize } }) => cardSize.small.width}
+  `,
+  margin: css`
+    ${({ theme: { cardSize } }) => cardSize.small.margin}
+  `,
+};
 
 const Wrapper = styled.div`
   position: relative;
   ${({ theme: { center, padding } }) =>
     css`
       max-width: calc(
-        (${padding.large} * 2) + (${CARD_MARGIN} * 3) + (${CARD_WIDTH} * 4)
+        (${padding.large} * 2) + (${CARD_SIZE.margin} * 3) +
+          (${CARD_SIZE.width} * 4)
       );
       margin: ${center.margin};
     `};
