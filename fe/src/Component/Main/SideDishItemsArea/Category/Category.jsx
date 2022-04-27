@@ -27,8 +27,8 @@ const Category = ({ name, sideDishes }) => {
   const [isRightButtonClickable, setIsRightButtonClickable] = useState(false);
 
   const buttonHandlers = {
-    left: setIsLeftButtonClickable,
-    right: setIsRightButtonClickable,
+    setLeftButton: setIsLeftButtonClickable,
+    setRightButton: setIsRightButtonClickable,
   };
 
   return (
