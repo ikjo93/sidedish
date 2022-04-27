@@ -1,7 +1,6 @@
 import { useState } from "react";
 import BtnShowAndHideArea from "./BtnShowAndHideArea";
-
-const RestCategories = () => {};
+import RestCategories from "./RestCategories/RestCategories";
 
 const RestCategoriesArea = () => {
   const [showing, setShowing] = useState(false);
