@@ -1,13 +1,20 @@
 import PropTypes from "prop-types";
 import { ImgSliderButtons } from "MockData/MockData";
 // import { useState } from "react";
-import {
-  Wrapper,
-  CategoryWrapper,
-  Title,
-  SliderButton,
-} from "./Category.styled";
+import { Wrapper, CategoryWrapper, Title } from "./Category.styled";
+import SliderButton from "./ImgSlider/SliderButton";
 import ImgSlider from "./ImgSlider/ImgSlider";
+
+const sliderButtonInfo = {
+  left: {
+    inner: ImgSliderButtons.left,
+    type: "left",
+  },
+  right: {
+    inner: ImgSliderButtons.right,
+    type: "right",
+  },
+};
 
 const CategoryTitle = ({ name }) => {
   return <Title>{name}</Title>;
@@ -21,16 +28,12 @@ const Category = ({ name, sideDishes }) => {
 
   return (
     <Wrapper>
-      <SliderButton type="button" className="left" isClickable={false}>
-        {ImgSliderButtons.left}
-      </SliderButton>
+      <SliderButton info={sliderButtonInfo.left} isClickable={false} />
       <CategoryWrapper>
         <CategoryTitle name={name} />
         <ImgSlider sideDishes={sideDishes} />
       </CategoryWrapper>
-      <SliderButton type="button" className="right" isClickable={true}>
-        {ImgSliderButtons.right}
-      </SliderButton>
+      <SliderButton info={sliderButtonInfo.right} isClickable={true} />
     </Wrapper>
   );
 };
