@@ -6,11 +6,11 @@ const EventTabUl = styled.ul`
     ${boldFonts.large};
   `}
 
-  ${({ id }) =>
+  ${({ id, theme: { colors } }) =>
     id &&
     css`
       > :nth-child(${id}) {
-        border-bottom: 2px solid #1b1b1b;
+        border-bottom: 2px solid ${colors.black};
       }
     `}
 
@@ -26,7 +26,9 @@ const EventTabUl = styled.ul`
     }
 
     :hover {
-      border-bottom: 2px solid #bcbcbc;
+      ${({ theme: { colors } }) => css`
+        border-bottom: 2px solid ${colors.grey3};
+      `}
     }
   }
 `;

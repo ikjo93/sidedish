@@ -15,7 +15,6 @@ const EventCardsWrapper = styled.div`
 const EventCardsUl = styled.ul`
   ${({ theme: { center } }) => center}
 
-  font-family: "Noto Sans KR";
   padding-top: 34px;
   padding-bottom: 56px;
   display: flex;

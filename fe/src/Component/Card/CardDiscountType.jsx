@@ -16,9 +16,12 @@ const CardDiscountTypeDiv = styled.div`
         return null;
     }
   }}
-  ${({ theme: { boldFonts } }) => boldFonts.xSmall}
 
-  color: #ffffff;
+  ${({ theme: { boldFonts, colors } }) => css`
+    ${boldFonts.xSmall};
+    color: ${colors.white};
+  `}
+
   margin-top: 16px;
   padding: 6px 16px;
   border-radius: 100px;
