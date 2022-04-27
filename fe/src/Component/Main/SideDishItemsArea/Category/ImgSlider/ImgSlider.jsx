@@ -10,14 +10,7 @@ const Items = ({ datas }) => {
   ));
 };
 
-const ImgSlider = ({
-  sideDishes,
-  handlers /* : { setLeftButton, setRightButton } */,
-  sliderRef,
-  onTransitionEnd,
-}) => {
-  console.log(handlers, sliderRef); // unused-var용
-
+const ImgSlider = ({ sideDishes, sliderRef, onTransitionEnd }) => {
   return (
     <Wrapper>
       <ImgSliderUl ref={sliderRef} onTransitionEnd={onTransitionEnd}>
@@ -33,7 +26,6 @@ ImgSlider.propTypes = {
       PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool])
     )
   ).isRequired,
-  handlers: PropTypes.objectOf(PropTypes.func).isRequired,
   sliderRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),

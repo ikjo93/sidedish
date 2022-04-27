@@ -5,6 +5,7 @@ import { Wrapper, CategoryWrapper, Title } from "./Category.styled";
 import SliderButton from "./ImgSlider/SliderButton";
 import ImgSlider from "./ImgSlider/ImgSlider";
 
+const TRANSITION_DURATION = "500ms";
 const MAX_CARDS_COUNT_PER_SLIDE = 4;
 const CARD_SIZE = {
   width: 302,
@@ -29,72 +30,78 @@ const CategoryTitle = ({ name }) => {
 };
 
 const Category = ({ name, sideDishes }) => {
-  const getInitialLastIdx = () => {
-    if (sideDishes.length >= MAX_CARDS_COUNT_PER_SLIDE) {
-      return MAX_CARDS_COUNT_PER_SLIDE - 1;
-    }
-    return sideDishes.length - 1;
-  };
+  const TOTAL_DATA_COUNT = sideDishes.length;
 
   const sideDishSlider = useRef();
-  const curFirstIdx = useRef(0);
-  const curLastIdx = useRef(getInitialLastIdx());
-  const cardMoveCount = useRef(0);
+  const curPosition = useRef(0);
 
-  // 초기에는 false, 페이지가 넘어가면 true로 변경
   const [isLeftButtonClickable, setIsLeftButtonClickable] = useState(false);
-  // 4개가 초과하면 true로 변경
   const [isRightButtonClickable, setIsRightButtonClickable] = useState(true);
-  // const [isTransitionEnd, setIsTransitionEnd] = useState(true);
 
-  const buttonClickableHandlers = {
-    setLeftButton: setIsLeftButtonClickable,
-    setRightButton: setIsRightButtonClickable,
+  const moveSlider = () => {
+    sideDishSlider.current.style.transition = `transform ${TRANSITION_DURATION}`;
+    sideDishSlider.current.style.transform = `translateX(-${
+      curPosition.current * MOVE_PX_PER_COUNT
+    }px)`;
+  };
+
+  const checkCurIndex = {
+    left: () => {
+      if (curPosition.current <= 0) {
+        curPosition.current = 0;
+        setIsLeftButtonClickable(false);
+      }
+    },
+    right: () => {
+      if (curPosition.current + MAX_CARDS_COUNT_PER_SLIDE >= TOTAL_DATA_COUNT) {
+        const remainder = Math.floor(TOTAL_DATA_COUNT % 4);
+        if (remainder) {
+          curPosition.current = curPosition.current - 4 + remainder;
+        }
+        setIsRightButtonClickable(false);
+      }
+    },
+  };
+
+  const computePosition = (direction) => {
+    setIsRightButtonClickable(true);
+    setIsLeftButtonClickable(true);
+
+    checkCurIndex[direction]();
+    moveSlider();
+  };
+
+  const movePosition = {
+    left: () => {
+      curPosition.current -= 4;
+      computePosition("left");
+    },
+    right: () => {
+      curPosition.current += 4;
+      computePosition("right");
+    },
   };
 
   const handleSlide = {
-    // 중복처리
-    // 클래스 추가해서 Click불가능한 버튼은 아예 클릭이벤트 발생안되게 하기
     left: () => {
-      const countToMove = cardMoveCount.current;
-      sideDishSlider.current.style.transition = `transform 2s`;
-      sideDishSlider.current.style.transform = `translateX(${
-        countToMove * MOVE_PX_PER_COUNT
-      }px)`;
-
-      curFirstIdx.current = curFirstIdx + countToMove;
-      curLastIdx.current = curLastIdx + countToMove;
+      if (!curPosition.current) {
+        return;
+      }
+      movePosition.left();
     },
     right: () => {
-      const countToMove = cardMoveCount.current * -1;
-      sideDishSlider.current.style.transition = `transform 2s`;
-      sideDishSlider.current.style.transform = `translateX(${
-        countToMove * MOVE_PX_PER_COUNT
-      }px)`;
-
-      curFirstIdx.current = curFirstIdx + countToMove;
-      curLastIdx.current = curLastIdx + countToMove;
+      if (curPosition.current + MAX_CARDS_COUNT_PER_SLIDE >= TOTAL_DATA_COUNT) {
+        return;
+      }
+      movePosition.right();
     },
   };
 
   useEffect(() => {
-    const lastSideDishIdx = sideDishes.length - 1;
-    if (sideDishes[curLastIdx.current + MAX_CARDS_COUNT_PER_SLIDE]) {
-      cardMoveCount.current = MAX_CARDS_COUNT_PER_SLIDE;
-    } else {
-      cardMoveCount.current = lastSideDishIdx - curLastIdx.current;
+    if (TOTAL_DATA_COUNT <= MAX_CARDS_COUNT_PER_SLIDE) {
+      setIsRightButtonClickable(false);
     }
   }, []);
-
-  // useEffect(() => {
-  //   // 일단 오른쪽만 작동
-  //   console.log("[isTransitionEnd]", isTransitionEnd, curLastIdx.current);
-  //   const lastSideDishIdx = sideDishes.length - 1;
-  //   curLastIdx.current += cardMoveCount.current;
-
-  //   cardMoveCount.current = lastSideDishIdx - curLastIdx.current;
-  //   console.log(curLastIdx.current, cardMoveCount.current);
-  // }, [isTransitionEnd]);
 
   return (
     <Wrapper>
@@ -105,15 +112,7 @@ const Category = ({ name, sideDishes }) => {
       />
       <CategoryWrapper>
         <CategoryTitle name={name} />
-        <ImgSlider
-          sideDishes={sideDishes}
-          handlers={buttonClickableHandlers}
-          sliderRef={sideDishSlider}
-          onTransitionEnd={() => {
-            console.log("transition end");
-            // setIsTransitionEnd(true);
-          }}
-        />
+        <ImgSlider sideDishes={sideDishes} sliderRef={sideDishSlider} />
       </CategoryWrapper>
       <SliderButton
         info={sliderButtonInfo.right}
