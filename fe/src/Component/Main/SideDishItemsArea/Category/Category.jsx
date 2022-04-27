@@ -45,7 +45,7 @@ const Category = ({ name, sideDishes }) => {
   const [isLeftButtonClickable, setIsLeftButtonClickable] = useState(false);
   // 4개가 초과하면 true로 변경
   const [isRightButtonClickable, setIsRightButtonClickable] = useState(true);
-  // const [isTransitionEnd, setIsTransitionEnd] = useState(false);
+  // const [isTransitionEnd, setIsTransitionEnd] = useState(true);
 
   const buttonClickableHandlers = {
     setLeftButton: setIsLeftButtonClickable,
@@ -79,12 +79,21 @@ const Category = ({ name, sideDishes }) => {
 
   useEffect(() => {
     const lastSideDishIdx = sideDishes.length - 1;
-    cardMoveCount.current = lastSideDishIdx - curLastIdx.current;
+    if (sideDishes[curLastIdx.current + MAX_CARDS_COUNT_PER_SLIDE]) {
+      cardMoveCount.current = MAX_CARDS_COUNT_PER_SLIDE;
+    } else {
+      cardMoveCount.current = lastSideDishIdx - curLastIdx.current;
+    }
   }, []);
 
   // useEffect(() => {
   //   // 일단 오른쪽만 작동
+  //   console.log("[isTransitionEnd]", isTransitionEnd, curLastIdx.current);
+  //   const lastSideDishIdx = sideDishes.length - 1;
   //   curLastIdx.current += cardMoveCount.current;
+
+  //   cardMoveCount.current = lastSideDishIdx - curLastIdx.current;
+  //   console.log(curLastIdx.current, cardMoveCount.current);
   // }, [isTransitionEnd]);
 
   return (
@@ -100,7 +109,10 @@ const Category = ({ name, sideDishes }) => {
           sideDishes={sideDishes}
           handlers={buttonClickableHandlers}
           sliderRef={sideDishSlider}
-          onTransitionEnd={() => console.log("transition end")}
+          onTransitionEnd={() => {
+            console.log("transition end");
+            // setIsTransitionEnd(true);
+          }}
         />
       </CategoryWrapper>
       <SliderButton
