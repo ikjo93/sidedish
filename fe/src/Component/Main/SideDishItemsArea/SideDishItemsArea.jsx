@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import menuCategoriesApi from "Service/menuCategoriesApi";
 import Category from "./Category/Category";
-import Wrapper from "./SideDishItemsArea.styled";
 
 const SideDishItemsArea = () => {
   const [sideDishItemsData, setSideDishItemsData] = useState([]);
@@ -28,9 +27,9 @@ const SideDishItemsArea = () => {
   }, []);
 
   return sideDishItemsData.map(({ category: { name, id }, sideDishes }) => (
-    <Wrapper key={id}>
+    <div key={id}>
       <Category name={name} sideDishes={sideDishes} />
-    </Wrapper>
+    </div>
   ));
 };
 

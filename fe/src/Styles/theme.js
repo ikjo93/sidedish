@@ -82,6 +82,14 @@ const regularFonts = {
   },
 };
 
-const theme = { padding, center, colors, boldFonts, regularFonts };
+const cardSize = {
+  small: {
+    width: "302px",
+    height: "456px",
+    margin: "24px",
+  },
+};
+
+const theme = { padding, center, colors, boldFonts, regularFonts, cardSize };
 
 export default theme;

@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
 import { ImgSliderButtons } from "MockData/MockData";
-import { CategoryWrapper, Title, SliderButton } from "./Category.styled";
+// import { useState } from "react";
+import {
+  Wrapper,
+  CategoryWrapper,
+  Title,
+  SliderButton,
+} from "./Category.styled";
 import ImgSlider from "./ImgSlider/ImgSlider";
 
 const CategoryTitle = ({ name }) => {
@@ -8,10 +14,13 @@ const CategoryTitle = ({ name }) => {
 };
 
 const Category = ({ name, sideDishes }) => {
-  // const [curFirstIndex, setCurFirstIndex] = setState(0);
+  // 초기에는 false, 페이지가 넘어가면 true로 변경
+  // const [isLeftButtonClickable, setIsLeftButtonClickable] = useState(false);
+  // // 4개가 초과하면 true로 변경
+  // const [isRightButtonClickable, setIsRightButtonClickable] = useState(false);
 
   return (
-    <>
+    <Wrapper>
       <SliderButton type="button" className="left" isClickable={false}>
         {ImgSliderButtons.left}
       </SliderButton>
@@ -22,7 +31,7 @@ const Category = ({ name, sideDishes }) => {
       <SliderButton type="button" className="right" isClickable={true}>
         {ImgSliderButtons.right}
       </SliderButton>
-    </>
+    </Wrapper>
   );
 };
 

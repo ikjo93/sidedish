@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import ImgSliderUl from "./ImgSlider.styled";
+import { ImgSliderUl, Wrapper } from "./ImgSlider.styled";
 
 const Items = ({ datas }) => {
   return datas.map((item) => (
@@ -11,9 +11,11 @@ const Items = ({ datas }) => {
 
 const ImgSlider = ({ sideDishes }) => {
   return (
-    <ImgSliderUl>
-      <Items datas={sideDishes} />
-    </ImgSliderUl>
+    <Wrapper>
+      <ImgSliderUl>
+        <Items datas={sideDishes} />
+      </ImgSliderUl>
+    </Wrapper>
   );
 };
 
