@@ -4,6 +4,7 @@ import Normalize from "Styles/Normalize";
 import Header from "Component/Header/Header";
 import Main from "Component/Main/Main";
 import theme from "Styles/theme";
+import DetailPage from "Component/DetailPage/DetailPage";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Normalize />
         <Header />
         <Main />
+        <DetailPage />
       </ThemeProvider>
     </div>
   );
