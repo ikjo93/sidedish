@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import { ImgSliderUl, Wrapper } from "./ImgSlider.styled";
 
-const MAX_CARDS_COUNT_PER_SLIDE = 4;
-
 /* Items는 Card로 대체되어야 하는 컴포넌트임 */
 const Items = ({ datas }) => {
   return datas.map((item) => (
@@ -16,31 +14,13 @@ const ImgSlider = ({
   sideDishes,
   handlers /* : { setLeftButton, setRightButton } */,
   sliderRef,
+  onTransitionEnd,
 }) => {
-  // useRef로 가능할수도.. 리렌더링이 될 필요가 없음
-  // const [curFirstVisibleIdx, setCurFirstVisibleIdx] = useState(0);
-  // const [curLastVisibleIdx, setCurLastVisibleIdx] = useState(0);
-
-  // const getCurLastVisibleIdx = () => {
-  //   for (let i = curFirstVisibleIdx; i < MAX_CARDS_COUNT_PER_SLIDE; i += 1) {
-  //     if (!sideDishes[i]) {
-  //       return i - 1;
-  //     }
-  //   }
-  //   return curFirstVisibleIdx + MAX_CARDS_COUNT_PER_SLIDE - 1;
-  // };
-
-  // useEffect(() => {
-  //   const targetIdx = getCurLastVisibleIdx();
-
-  //   setCurLastVisibleIdx(targetIdx);
-  // }, [curFirstVisibleIdx]);
-
-  console.log(handlers, MAX_CARDS_COUNT_PER_SLIDE, sliderRef);
+  console.log(handlers, sliderRef); // unused-var용
 
   return (
     <Wrapper>
-      <ImgSliderUl ref={sliderRef}>
+      <ImgSliderUl ref={sliderRef} onTransitionEnd={onTransitionEnd}>
         {/* Items는 Card로 대체되어야 하는 컴포넌트임 */}
         <Items datas={sideDishes} />
       </ImgSliderUl>
@@ -58,6 +38,7 @@ ImgSlider.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
+  onTransitionEnd: PropTypes.func.isRequired,
 };
 
 export default ImgSlider;
