@@ -19,7 +19,7 @@ const SubImage = styled.img`
     return (
       id === imageNumber &&
       css`
-        border: solid 1px ${colors.grey2};
+        border: solid 2px ${colors.grey2};
       `
     );
   }}

@@ -10,7 +10,7 @@ const DetailPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(248, 247, 247, 0.8);
-  /* overflow: hidden; */
+  overflow: hidden;
 `;
 
 const tester = {

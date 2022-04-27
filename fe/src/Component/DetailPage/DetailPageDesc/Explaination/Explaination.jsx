@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Images from "./Images/Images";
+import Order from "./Order/Order";
 
 const ExplainationDiv = styled.div`
   display: flex;
@@ -7,15 +8,6 @@ const ExplainationDiv = styled.div`
   height: 472px;
   justify-content: space-between;
 `;
-
-const OrderDiv = styled.div`
-  border: 1px solid blue;
-  width: 440px;
-`;
-
-const Order = () => {
-  return <OrderDiv />;
-};
 
 const Explaination = () => {
   return (

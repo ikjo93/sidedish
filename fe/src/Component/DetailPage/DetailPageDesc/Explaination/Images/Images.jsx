@@ -1,5 +1,5 @@
-import DetailInfoContext from "Component/DetailPage/DetailInfoContext";
 import { useContext, useState } from "react";
+import DetailInfoContext from "Component/DetailPage/DetailInfoContext";
 import { ImagesDiv, MainImage, SubImagesArea, SubImage } from "./Images.styled";
 
 const Images = () => {
