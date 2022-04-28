@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import CloseBtnArea from "./CloseBtnArea/CloseBtnArea";
 import Explaination from "./Explaination/Explaination";
@@ -11,13 +12,17 @@ const DetailPageDescDiv = styled.div`
   box-shadow: 0px 0px 10px black;
 `;
 
-const DetailPageDesc = () => {
+const DetailPageDesc = ({ onClose }) => {
   return (
     <DetailPageDescDiv>
-      <CloseBtnArea />
+      <CloseBtnArea onClick={onClose} />
       <Explaination />
     </DetailPageDescDiv>
   );
+};
+
+DetailPageDesc.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default DetailPageDesc;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import DetailPageDesc from "./DetailPageDesc/DetailPageDesc";
 import DetailInfoContext from "./DetailInfoContext";
@@ -41,15 +42,19 @@ const tester = {
   ],
 };
 
-const DetailPage = () => {
+const DetailPage = ({ onClose }) => {
   return (
     <DetailInfoContext.Provider value={tester}>
       <DetailPageWrapper>
-        <DetailPageDesc />
+        <DetailPageDesc onClose={onClose} />
         {/* <DetailPageRelated /> */}
       </DetailPageWrapper>
     </DetailInfoContext.Provider>
   );
+};
+
+DetailPage.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default DetailPage;
