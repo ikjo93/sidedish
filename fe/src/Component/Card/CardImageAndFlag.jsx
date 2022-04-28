@@ -9,7 +9,7 @@ const CardImageAndFlag = ({
   return (
     <div>
       <CardImage
-        src={`${constants.API}${saveFileName}`}
+        src={`${constants.API}/${saveFileName}`}
         alt={name}
         isHover={isHover}
       />

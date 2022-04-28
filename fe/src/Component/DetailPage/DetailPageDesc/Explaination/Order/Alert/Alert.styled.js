@@ -27,7 +27,10 @@ const AlertDiv = styled.div`
   width: ${ELEMENT_SIZE.AlertDiv.width}px;
   height: ${ELEMENT_SIZE.AlertDiv.height}px;
   position: absolute;
-  top: ${({ innerSize }) => innerSize.height / 2}px;
+  top: ${({ scrollYPosition, screenSize }) =>
+    scrollYPosition +
+    screenSize.height / 2 -
+    ELEMENT_SIZE.AlertDiv.height / 2}px;
   left: calc(50% - ${ELEMENT_SIZE.AlertDiv.width / 2}px);
 `;
 

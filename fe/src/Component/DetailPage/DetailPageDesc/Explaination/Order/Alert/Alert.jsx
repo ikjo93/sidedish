@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 import { Wrapper, AlertDiv, MessageArea, Button } from "./Alert.styled";
 
-const getInnerSize = {
-  width: window.innerWidth,
-  height: window.innerHeight,
+const screenSize = {
+  width: window.screen.width,
+  height: window.screen.height,
 };
+
+const scrollYPosition = () => window.pageYOffset;
 
 const Alert = ({ message = "테스트용 메시지", handler }) => {
   return (
-    <Wrapper>
-      <AlertDiv innerSize={getInnerSize}>
+    <Wrapper onClick={handler} className="alertWrap">
+      <AlertDiv screenSize={screenSize} scrollYPosition={scrollYPosition()}>
         <MessageArea>
           <p>{message}</p>
         </MessageArea>

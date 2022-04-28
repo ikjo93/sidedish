@@ -1,16 +1,16 @@
 import ButtonWrap from "Component/Header/HeaderRight/HeaderRight.styled";
 import { icons } from "MockData/MockData";
-import { useEffect } from "react";
-import loginApi from "Service/loginApi";
+// import { useEffect } from "react";
+// import loginApi from "Service/loginApi";
 
 const Buttons = () => {
-  useEffect(() => {
-    const fetchLoginData = async () => {
-      const response = await loginApi.getLoginInfo();
-      console.log(response);
-    };
-    console.log(fetchLoginData(), "테스트");
-  }, []);
+  // useEffect(() => {
+  //   const fetchLoginData = async () => {
+  //     const response = await loginApi.getLoginInfo();
+
+  //   };
+  //   console.log(fetchLoginData);
+  // }, []);
 
   return icons.map((icon) => (
     <a

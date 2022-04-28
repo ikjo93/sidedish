@@ -8,10 +8,8 @@ const loginApi = {
   getLoginInfo: async () => {
     try {
       const response = await client.get(`/`);
-      console.log(response, "try");
       return response;
     } catch (error) {
-      console.log(error.response, "catch");
       return error.response;
     }
   },

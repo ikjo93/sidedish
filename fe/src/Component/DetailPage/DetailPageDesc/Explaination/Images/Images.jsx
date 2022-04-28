@@ -7,7 +7,7 @@ const Images = () => {
   const [imageNumber, setImageNumber] = useState(0);
   const { imageFiles, name } = useContext(DetailInfoContext);
   const imageFilesSrc = imageFiles.map((imageFile, idx) => {
-    return { src: `${constants.API}${imageFile}`, idx };
+    return { src: `${constants.API}/${imageFile}`, idx };
   });
 
   const handleSubImageClick = ({ target: { id } }) => {
