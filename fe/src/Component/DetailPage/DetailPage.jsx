@@ -28,7 +28,7 @@ const DetailPage = ({ onClose, id }) => {
 
   useEffect(() => {
     fetchDetailData(id);
-  }, []);
+  }, [id]);
 
   return (
     <DetailInfoContext.Provider value={sideDish}>
