@@ -15,7 +15,7 @@ const DetailPageDescDiv = styled.div`
 const DetailPageDesc = ({ onClose }) => {
   return (
     <DetailPageDescDiv>
-      <CloseBtnArea onClick={onClose} />
+      <CloseBtnArea onClose={onClose} />
       <Explaination />
     </DetailPageDescDiv>
   );

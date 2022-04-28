@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const CloseBtnDiv = styled.div`
@@ -15,12 +16,16 @@ const CloseBtn = styled.button`
   margin-right: 20px;
 `;
 
-const CloseBtnArea = () => {
+const CloseBtnArea = ({ onClose }) => {
   return (
-    <CloseBtnDiv>
+    <CloseBtnDiv onClick={onClose}>
       <CloseBtn type="button">닫기</CloseBtn>
     </CloseBtnDiv>
   );
+};
+
+CloseBtnArea.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default CloseBtnArea;
