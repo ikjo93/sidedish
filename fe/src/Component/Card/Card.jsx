@@ -5,7 +5,7 @@ import DetailPage from "Component/DetailPage/DetailPage";
 import CardDiscountType from "./CardDiscountType";
 import CardPrice from "./CardPrice";
 import CardImageAndFlag from "./CardImageAndFlag";
-import { CardLi } from "./Card.styled";
+import { CardLi, Div } from "./Card.styled";
 
 const Card = ({
   type,
@@ -56,7 +56,7 @@ const Card = ({
         <CardDiscountType discountType={discountType} />
       </CardLi>
       <ModalPortal>
-        {isModalOn && <DetailPage onClose={handleModal} id={id} />}
+        <Div>{isModalOn && <DetailPage onClose={handleModal} id={id} />}</Div>
       </ModalPortal>
     </>
   );
