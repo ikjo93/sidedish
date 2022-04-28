@@ -13,7 +13,7 @@ const OrderInfo = () => {
         <DeliveryInfo count={count} />
         <Counter state={{ count, setCount }} />
       </div>
-      <OrderBtn />
+      <OrderBtn count={count} />
     </OrderInfoDiv>
   );
 };

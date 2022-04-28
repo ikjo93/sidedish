@@ -5,4 +5,9 @@ const ModalPortal = ({ children }) => {
   return reactDom.createPortal(children, modal);
 };
 
-export default ModalPortal;
+const AlertPortal = ({ children }) => {
+  const alertPopup = document.getElementById("alertPopup");
+  return reactDom.createPortal(children, alertPopup);
+};
+
+export { ModalPortal, AlertPortal };
