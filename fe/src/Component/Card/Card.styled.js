@@ -102,8 +102,4 @@ const CardPriceDiv = styled.div`
   `}
 `;
 
-const Div = styled.div`
-  overflow: hidden;
-`;
-
-export { CardLi, CardImage, CardFlag, CardPriceDiv, Div };
+export { CardLi, CardImage, CardFlag, CardPriceDiv };
