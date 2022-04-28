@@ -1,4 +1,5 @@
 import axios from "axios";
+import constants from "common/constants";
 
 const baseURL = `${constants.API}/api/`;
 const client = axios.create({
@@ -8,6 +9,7 @@ const client = axios.create({
   },
   withCredentials: true,
 });
+
 const loginApi = {
   getLoginInfo: async () => {
     try {
