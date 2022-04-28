@@ -24,6 +24,7 @@ const SubImage = styled.img`
     );
   }}
 
+  cursor: pointer;
   width: 72px;
   margin-right: 8px;
   border-radius: 8px;
