@@ -9,8 +9,15 @@ const screenSize = {
 const scrollYPosition = () => window.pageYOffset;
 
 const Alert = ({ message = "테스트용 메시지", handler }) => {
+  const handleAlertWrapper = ({ target }) => {
+    if (!target.classList.contains("alertWrap")) {
+      return;
+    }
+    handler();
+  };
+
   return (
-    <Wrapper onClick={handler} className="alertWrap">
+    <Wrapper onClick={handleAlertWrapper} className="alertWrap">
       <AlertDiv screenSize={screenSize} scrollYPosition={scrollYPosition()}>
         <MessageArea>
           <p>{message}</p>
