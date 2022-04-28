@@ -3,8 +3,10 @@ import { CloseBtn, CloseBtnDiv } from "./CloseBtnArea.styled";
 
 const CloseBtnArea = ({ onClose }) => {
   return (
-    <CloseBtnDiv onClick={onClose}>
-      <CloseBtn type="button">닫기</CloseBtn>
+    <CloseBtnDiv>
+      <CloseBtn type="button" onClick={onClose}>
+        닫기
+      </CloseBtn>
     </CloseBtnDiv>
   );
 };

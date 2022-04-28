@@ -13,6 +13,13 @@ const DetailPage = ({ onClose, id }) => {
     setSideDish(sideDishData);
   };
 
+  const handleClickWrapper = ({ target }) => {
+    if (!target.classList.contains("wrap")) {
+      return;
+    }
+    onClose();
+  };
+
   useEffect(() => {
     document.body.style = css`
       position: relative;
@@ -33,7 +40,7 @@ const DetailPage = ({ onClose, id }) => {
 
   return (
     <DetailInfoContext.Provider value={sideDish}>
-      <DetailPageWrapper>
+      <DetailPageWrapper className="wrap" onClick={handleClickWrapper}>
         <DetailPageDesc onClose={onClose} />
         {/* <DetailPageRelated /> */}
       </DetailPageWrapper>
