@@ -17,6 +17,7 @@ const Normalize = createGlobalStyle`
   }
 
   button {
+    font-family: "Noto Sans KR", sans-serif;
     cursor: pointer;
   }
 `;

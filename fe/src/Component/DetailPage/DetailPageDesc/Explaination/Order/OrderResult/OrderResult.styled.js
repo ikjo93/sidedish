@@ -20,7 +20,6 @@ const MessageArea = styled.div`
 `;
 
 const Button = styled.button`
-  font-family: "Noto Sans KR", sans-serif;
   ${({ theme: { colors } }) => css`
     background-color: ${colors.black};
     color: ${colors.white};
