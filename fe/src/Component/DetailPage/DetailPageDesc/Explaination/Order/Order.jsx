@@ -2,7 +2,6 @@ import { useContext } from "react";
 import DetailInfoContext from "Component/DetailPage/DetailInfoContext";
 import OrderPrice from "./OrderPrice/OrderPrice";
 import OrderInfo from "./OrderInfo/OrderInfo";
-import OrderBtn from "./OrderBtn/OrderBtn";
 import OrderDiv from "./Order.styled";
 
 const Order = () => {
@@ -13,7 +12,6 @@ const Order = () => {
       <div className="name">{name}</div>
       <OrderPrice />
       <OrderInfo />
-      <OrderBtn />
     </OrderDiv>
   );
 };
