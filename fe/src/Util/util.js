@@ -7,7 +7,7 @@ const getPriceType = (price, discountRate) => {
     calculatedPrice
   ).slice(-3)}원`;
 
-  return standardizedPrice.length !== 5
+  return standardizedPrice[0] !== ","
     ? standardizedPrice
     : standardizedPrice.slice(1);
 };
