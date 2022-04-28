@@ -43,7 +43,7 @@ const Card = ({
         <CardDiscountType discountType={discountType} />
       </CardLi>
       <ModalPortal>
-        {isModalOn && <DetailPage onClose={handleModal} />}
+        {isModalOn && <DetailPage onClose={handleModal} id={id} />}
       </ModalPortal>
     </>
   );

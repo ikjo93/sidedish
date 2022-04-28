@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import DetailInfoContext from "Component/DetailPage/DetailInfoContext";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import CloseBtnArea from "./CloseBtnArea/CloseBtnArea";
@@ -13,6 +15,9 @@ const DetailPageDescDiv = styled.div`
 `;
 
 const DetailPageDesc = ({ onClose }) => {
+  const { id } = useContext(DetailInfoContext);
+  if (!id) return null;
+
   return (
     <DetailPageDescDiv>
       <CloseBtnArea onClose={onClose} />
