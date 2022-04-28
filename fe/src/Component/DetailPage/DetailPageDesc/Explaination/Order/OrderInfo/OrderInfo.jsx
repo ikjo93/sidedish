@@ -1,12 +1,7 @@
 import { useState } from "react";
-import styled from "styled-components";
 import DeliveryInfo from "./DeliveryInfo/DeliveryInfo";
 import Counter from "./Counter/Counter";
-
-const OrderInfoDiv = styled.div`
-  margin-top: 24px;
-  height: 260px;
-`;
+import OrderInfoDiv from "./OrderInfo.styled";
 
 const OrderInfo = () => {
   const [count, setCount] = useState(1);
