@@ -21,14 +21,26 @@ const Card = ({
     wholeNationDeliveryFlag,
   },
 }) => {
+  const [isHover, setIsHover] = useState(false);
   const [isModalOn, setIsModalOn] = useState(false);
+
+  const handleMouseEvent = () => {
+    setIsHover(!isHover);
+  };
+
   const handleModal = () => {
     setIsModalOn(!isModalOn);
   };
 
   return (
     <>
-      <CardLi key={id} type={type} onClick={handleModal}>
+      <CardLi
+        key={id}
+        type={type}
+        onClick={handleModal}
+        onMouseEnter={handleMouseEvent}
+        onMouseLeave={handleMouseEvent}
+      >
         <CardImageAndFlag
           props={{
             saveFileName,
@@ -36,6 +48,7 @@ const Card = ({
             dawnDeliveryFlag,
             wholeNationDeliveryFlag,
           }}
+          isHover={isHover}
         />
         <div className="name">{name}</div>
         <div className="desc">{description}</div>
