@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import { Wrapper, AlertDiv, MessageArea, Button } from "./Alert.styled";
 
+const getInnerSize = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+};
+
 const Alert = ({ message = "테스트용 메시지", handler }) => {
   return (
     <Wrapper>
-      <AlertDiv>
+      <AlertDiv innerSize={getInnerSize}>
         <MessageArea>
           <p>{message}</p>
         </MessageArea>
