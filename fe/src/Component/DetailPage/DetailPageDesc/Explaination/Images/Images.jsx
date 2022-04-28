@@ -6,7 +6,7 @@ const Images = () => {
   const [imageNumber, setImageNumber] = useState(0);
   const { imageFiles, name } = useContext(DetailInfoContext);
   const imageFilesSrc = imageFiles.map((imageFile, idx) => {
-    return { src: `http://3.36.89.161/${imageFile}`, idx };
+    return { src: `/${imageFile}`, idx };
   });
 
   const handleSubImageClick = ({ target: { id } }) => {

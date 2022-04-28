@@ -1,19 +1,25 @@
 import ButtonWrap from "Component/Header/HeaderRight/HeaderRight.styled";
 import { icons } from "MockData/MockData";
-import axios from "axios";
+import { useEffect } from "react";
+import loginApi from "Service/loginApi";
 
 const Buttons = () => {
-  const handleClick = async () => {
-    const response = await axios.get(
-      `https://github.com/login/oauth/authorize?client_id=52d17ef5577e55a18ca3&scope=user:email`
-    );
-    console.log(response.json());
-    alert("HIHI");
-  };
+  useEffect(() => {
+    const fetchLoginData = async () => {
+      const response = await loginApi.getLoginInfo();
+      console.log(response);
+    };
+    console.log(fetchLoginData(), "테스트");
+  }, []);
+
   return icons.map((icon) => (
-    <button onClick={handleClick} type="button" key={icon.id}>
+    <a
+      href="https://github.com/login/oauth/authorize?client_id=52d17ef5577e55a18ca3&scope=user:email"
+      type="button"
+      key={icon.id}
+    >
       {icon.svg}
-    </button>
+    </a>
   ));
 };
 
